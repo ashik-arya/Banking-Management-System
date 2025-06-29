@@ -1,31 +1,57 @@
 # 💰 Banking Management System
 
-A simple and intuitive **Banking Management System** project built to simulate basic banking operations such as account creation, deposit, withdrawal, and transaction history. This is a console-based application designed to demonstrate core programming concepts such as **Object-Oriented Programming (OOP)**, **file handling**, and **data management**.
+A console-based **Banking Management System** developed using **Java** and **MySQL**, designed to handle essential banking operations like user authentication, balance management, deposits, and withdrawals.
 
 ---
 
 ## 🚀 Features
 
-- 🏦 Create and manage bank accounts  
-- 💸 Deposit and withdraw money securely  
-- 📋 View account details and balance  
-- 📂 Store and retrieve data using file handling  
-- 🧠 Demonstrates basic OOP concepts like classes and objects
+- 🔐 User login using account number and password  
+- 🏦 View and manage account details  
+- 💸 Deposit and withdraw funds  
+- 📊 Real-time balance tracking  
+- 🔁 Secure transactions with security PIN  
+- 🗃️ MySQL database integration using JDBC  
+- 📌 Clean object-oriented structure
 
 ---
 
-## 🛠️ Technologies Used
+## 🛠️ Tech Stack
 
 - Java (Core Java)
-- OOP (Object-Oriented Programming)
-- File Handling (for data persistence)
-- Console-based interface
+- MySQL
+- JDBC (Java Database Connectivity)
+- Console-based Interface
 
 ---
 
-## 📦 Installation
+## 🗃️ Database Schema
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/ashik-arya/Banking-Management-System.git
-   cd Banking-Management-System
+### 👤 Table: `users`
+
+Used for authenticating users with account number and password.
+
+| Column           | Type           | Description                       |
+|------------------|----------------|-----------------------------------|
+| `account_number` | BIGINT (PK)    | Unique account number             |
+| `email`          | VARCHAR(100)   | User email (must be unique)       |
+| `password`       | VARCHAR(100)   | Login password                    |
+
+
+
+🏦 Table: accounts
+Stores bank account details associated with users.
+
+| Column           | Type          | Description                     |
+| ---------------- | ------------- | ------------------------------- |
+| `account_number` | BIGINT (PK)   | Same as in `users` (FK)         |
+| `full_name`      | VARCHAR(100)  | Account holder’s full name      |
+| `email`          | VARCHAR(100)  | Linked user email               |
+| `balance`        | DECIMAL(10,2) | Current account balance         |
+| `security_pin`   | VARCHAR(10)   | Used for transaction validation |
+
+
+
+
+
+
